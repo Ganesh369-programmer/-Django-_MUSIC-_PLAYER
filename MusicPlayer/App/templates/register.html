@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MelodyStream - Register</title>
+    <link rel="stylesheet" href="{% static "style.css" %}">
+</head>
+<body class="register-body">
+    <div class="container">
+        <div class="form-box">
+            <div class="logo">
+                <h1>🎵 MelodyStream</h1>
+                <p>Join the Rhythm</p>
+            </div>
+            <form class="register-form" id="registerForm" method='post'>
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn-primary">Register</button>
+                <p class="switch-link">Already have an account? <a href="{% url "login" %}">Login here</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Basic form submission handler (replace with your JS logic)
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (password !== confirmPassword) {
+                
+                alert('Passwords do not match!');
+                return;
+            }
+            
+        });
+    </script>
+</body>
+</html>

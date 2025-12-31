@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MelodyStream - Login</title>
+    <link rel="stylesheet" href="{% static "style.css" %}">
+</head>
+<body class="login-body">
+    <div class="container">
+        <div class="form-box">
+            <div class="logo">
+                <h1>🎵 MelodyStream</h1>
+                <p>Your Ultimate Music Companion</p>
+            </div>
+            <form class="login-form" id="loginForm" method='post'>
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="email">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+                {% if msg %}
+                    <p style="color:red; text-align:center;">{{ msg }}</p>
+                    {% endif %}
+                <p class="switch-link">Don't have an account? <a href="{% url "register" %}">Register here</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Basic form submission handler (replace with your JS logic)
+       
+    </script>
+</body>
+</html>
