@@ -136,6 +136,17 @@ def loginn(request):
 
     return render(request , 'loginn.html')
 
+def delete(request , id ):
+    s = Song.objects.get(id=id)
+
+    if s.file:
+        if(os.path.isfile(s.file.path)):
+            os.remove(s.file.path)
+
+
+    s.delete()
+    return redirect('/player')
+
 
 def logoutt(request):
     logout(request)

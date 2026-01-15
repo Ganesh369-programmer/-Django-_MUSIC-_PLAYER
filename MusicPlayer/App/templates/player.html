@@ -286,8 +286,16 @@
                    ontimeupdate="updateProgress('audio-{{ song.id }}', 'progress-{{ song.id }}')"
                    onloadedmetadata="document.getElementById('duration-{{ song.id }}').textContent = formatTime(this.duration)"
                    onended="document.querySelector('[onclick=\"togglePlay(\\'audio-{{ song.id }}\\')\"]').innerHTML = '<i class=\"fas fa-play\"></i>'">
-                <source src="{{ song.file.url }}" type="audio/mpeg">
+                <source src="{{ song.file.url }}" type="audio/mpeg" controls>
             </audio>
+
+            <div class="audio-actions">
+                            
+                            <a href="/delete/{{song.id}}" class="delete-btn" title="Delete Post">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                            
+                        </div>
         </div>
         {% endfor %}
     {% else %}
