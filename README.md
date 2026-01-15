@@ -46,7 +46,7 @@ Each user gets their own private music library with secure authentication.
 ![Music Player](screenshots/music2.png)
 
 ### ⚙️ Home Panel
-![Admin Panel](screenshots/Home.png)
+![Admin Panel](screenshots/home.png)
 
 
 
